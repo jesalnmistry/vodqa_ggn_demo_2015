@@ -6,7 +6,7 @@ Feature: Place an order for Headphones on amazon.in
     Given I am on the amazon.in home page
     And I type "audio technica headphones" in the search box
     When I click search
-    Then I should search results for "audio technica headphones"
+    Then I should see results for "audio technica headphones"
 
     When I choose the "ATH-M50X" model from the search
     Then I should see the description for my selection
