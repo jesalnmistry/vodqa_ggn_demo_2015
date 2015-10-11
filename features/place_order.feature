@@ -23,3 +23,13 @@ Feature: Place an order for Headphones on amazon.in
     When I confirm the order
     Then I should see a confirmation page
     And I should see the delivery details
+
+##################################################################################
+
+#  Declarative style
+  Scenario: User wants to buy new Audio Technica Headphones on Amazon India
+
+    Given I search for "audio technica headphones" on the home page
+    And I place an order for the "ATH-M50X" model from the search results
+    Then my order for headphones should be confirmed
+    And I should see the delivery details for my order
