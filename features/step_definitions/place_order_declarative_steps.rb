@@ -5,13 +5,16 @@ Given(/^I search for "([^"]*)" on the home page$/) do |search_query|
   current_page_model.results_page_has_content?(search_query)
 end
 
-And(/^I place an order for the "([^"]*)" model from the search results$/) do |arg|
+And(/^I place an order for the "([^"]*)" model from the search results$/) do |product_model|
 
-  current_page_model.choose_product(model)
+  Product::choose_product(product_model)
+  #current_page_model.choose_product(model)
 
-  current_page_model.check_description?(@model)
+  Product::check_product_description(product_model).be_present?
+  #current_page_model.check_description?(product_model)
 
-  current_page_model.has_selling_price?('Total Cost = ')
+  Product::check_selling_price.be_present?
+  #current_page_model.has_selling_price?('Total Cost = ')
 
   current_page_model.add_to_cart
 
